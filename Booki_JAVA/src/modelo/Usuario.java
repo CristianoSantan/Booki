@@ -70,5 +70,4 @@ public class Usuario {
 				+ " Senha: " + this.senha
 				+ " Tipo permissão: " + this.permissoes.getTipo(); 
 	}
-	
 }

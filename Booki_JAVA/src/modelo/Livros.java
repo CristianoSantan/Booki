@@ -9,7 +9,6 @@ public class Livros {
 	
 	private Editoras editoras;
 	private Autores autores;
-	
 	// Construtores
 	public Livros() {
 	}
@@ -78,4 +77,5 @@ public class Livros {
 		return "Livros [id=" + id + ", nome=" + nome + ", preco=" + preco + ", publicacao=" + publicacao + ", editoras="
 				+ editoras + ", autores=" + autores + "]";
 	}
+	
 }

@@ -4,7 +4,6 @@ public class Autores {
 	// Atributos
 	private int id;
 	private String nome;
-	
 	// Contrutores
 	public Autores() {
 	}
@@ -13,8 +12,8 @@ public class Autores {
 		this.id = id;
 		this.nome = nome;
 	}
-	
 	// Getters e Setters
+
 	public int getId() {
 		return id;
 	}
@@ -30,10 +29,12 @@ public class Autores {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	// ToString
 	@Override
 	public String toString() {
 		return "Autores [id=" + id + ", nome=" + nome + "]";
 	}
+	
+	
 }

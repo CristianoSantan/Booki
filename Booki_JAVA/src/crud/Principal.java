@@ -42,10 +42,16 @@ public class Principal {
 		c1.getItens().addAll(Arrays.asList(i1));
 		c1.getItens().addAll(Arrays.asList(i2));
 		
-		System.out.println("\n\nUsuario: " + c1.getUsuario().getNome() 
-				+ " \nLivro 1: " + c1.getItens().get(0).getValor()
-				+ " \nLivro 2: " + c1.getItens().get(1).getValor()
-				+ " \nValor compra: "	+ c1.getValor());
+		
+		System.out.println("\n\nUsuario: " + c1.getUsuario().getNome());
+		
+		for (Itens_compra i : c1.getItens()) {
+			System.out.println("Livro: "+ i.getLivros().getNome() 
+					+" quantidade: "+ i.getQtd_itens() 
+					+" valor: " + i.getValor());
+		}
+		
+		System.out.println(" \nValor compra: " + c1.getValor());
 	}
 
 }
