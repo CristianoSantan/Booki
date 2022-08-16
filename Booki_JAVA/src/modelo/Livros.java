@@ -1,14 +1,21 @@
 package modelo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Livros {
 	// Atributos
 	private int id;
 	private String nome;
 	private double preco;
-	private String publicacao;
+	private LocalDate publicacao;
 	
 	private Editoras editoras;
 	private Autores autores;
+	
+	// classe responsavel por formatar um padrao diferente do formato ISO
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
 	// Construtores
 	public Livros() {
 	}
@@ -17,7 +24,8 @@ public class Livros {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
-		this.publicacao = publicacao;
+		// convertendo data do tipo String ("dd/MM/yyyy") para LocalDate (yyyy-MM-dd)
+		this.publicacao = LocalDate.parse(publicacao, formatter);
 		this.editoras = editoras;
 		this.autores = autores;
 	}
@@ -47,12 +55,13 @@ public class Livros {
 		this.preco = preco;
 	}
 
+	// convertendo data do tipo LocalDate (yyyy-MM-dd) para String (dd/MM/yyyy)
 	public String getPublicacao() {
-		return publicacao;
+		return formatter.format(publicacao);
 	}
 
 	public void setPublicacao(String publicacao) {
-		this.publicacao = publicacao;
+		this.publicacao = LocalDate.parse(publicacao, formatter);
 	}
 
 	public Editoras getEditoras() {

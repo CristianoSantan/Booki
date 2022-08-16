@@ -1,9 +1,5 @@
 package crud;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 import dao.AutoresDAO;
@@ -12,7 +8,6 @@ import modelo.Autores;
 public class AutoresCrud {
 
 	public static void main(String[] args) {
-		
 		
 		AutoresDAO autorDAO = new AutoresDAO();
 
@@ -23,14 +18,13 @@ public class AutoresCrud {
 		int id = 0;
 		String nome = "";
 
-		List<Autores> autores = new ArrayList<Autores>();
-
 		do {
 			System.out.println("=== CRUD AUTORES ===");
 			System.out.println("1 - Cadastrar autores");
 			System.out.println("2 - Consultar autores");
 			System.out.println("3 - Atualizar autores");
 			System.out.println("4 - Deletar autores");
+			System.out.println("5 - Buscar por id");
 			System.out.println("0 - Sair");
 			opcao = s.nextInt();
 			s.nextLine();
@@ -45,18 +39,15 @@ public class AutoresCrud {
 				
 				autorDAO.save(a1);
 				
-				autores.addAll(Arrays.asList(a1));
-				
-				id++;
-				
 				System.out.println("\n***  Cadastrou  ***\n");
 
 				break;
 			case 2:
 				// READ
-				for (Autores a : autores) {
+				for (Autores a : autorDAO.getAutores()) {
 					System.out.println("Id: " + a.getId() + " Nome: " + a.getNome());
 				}
+				
 				System.out.println("consultou");
 				break;
 			case 3:
@@ -68,13 +59,8 @@ public class AutoresCrud {
 				nome = s.nextLine();
 				
 				Autores a2 = new Autores(posicao, nome);
-				
-				for (int i = 0; i < autores.size(); i++) {
-					if (posicao == autores.get(i).getId()) {
-						System.out.println("\nVocê atualizou o autor: " + autores.get(i).getNome());
-						Collections.replaceAll(autores, autores.get(i), a2);
-					}
-				}
+			
+				autorDAO.update(a2);
 	
 				System.out.println("atualizou");
 				break;
@@ -83,12 +69,17 @@ public class AutoresCrud {
 				System.out.println("Digite o id do autor: ");
 				posicao = s.nextInt();
 				
-				for (int i = 0; i < autores.size(); i++) {
-					if (posicao == autores.get(i).getId()) {
-						System.out.println("\nVocê removeu o autor: " + autores.get(i).getNome());
-						autores.remove(i);
-					}
-				}
+				autorDAO.deleteById(posicao);
+				
+				break;
+			case 5:
+				// buscar por id
+				System.out.println("Digite o id do autor: ");
+				posicao = s.nextInt();
+				
+				Autores a3 = autorDAO.getAutorById(posicao);
+				
+				System.out.println("Id: " + a3.getId() + " Nome: " + a3.getNome());
 				
 				break;
 			default:
