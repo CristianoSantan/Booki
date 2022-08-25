@@ -22,6 +22,7 @@ public class LivrosCrud {
 
 		int id = 0;
 		String nome = "";
+		String nome1 = "";
 		double preco = 0;
 		String publicacao = "";
 		int id_autor = 0;
@@ -80,7 +81,7 @@ public class LivrosCrud {
 				posicao = s.nextInt();
 				s.nextLine();
 				System.out.println("Digite o nome do Livro: ");
-				nome = s.nextLine();
+				nome1 = s.nextLine();
 				System.out.println("Digite o preco do Livro: ");
 				preco = s.nextDouble();
 				s.nextLine();
@@ -96,11 +97,11 @@ public class LivrosCrud {
 				Editoras editora1 = editoraDAO.getEditoraById(id_editora);
 				Autores autor1 = autorDAO.getAutorById(id_autor);
 
-				Livros l2 = new Livros(id, nome, preco, publicacao, editora1, autor1);
+				Livros l2 = new Livros(posicao, nome1, preco, publicacao, editora1, autor1);
 
 				livroDAO.update(l2);
 
-				System.out.println("atualizou");
+				System.out.println("atualizou" + l2.getNome());
 				break;
 			case 4:
 				// DELETE
@@ -124,7 +125,6 @@ public class LivrosCrud {
 			default:
 				System.out.println(opcao != 0 ? "opção invalida, digite novamente." : "");
 				break;
-
 			}
 
 		} while (opcao != 0);
