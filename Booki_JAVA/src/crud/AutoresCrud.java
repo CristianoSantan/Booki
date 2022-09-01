@@ -19,6 +19,7 @@ public class AutoresCrud {
 		String nome = "";
 
 		do {
+			
 			System.out.println("=== CRUD AUTORES ===");
 			System.out.println("1 - Cadastrar autores");
 			System.out.println("2 - Consultar autores");

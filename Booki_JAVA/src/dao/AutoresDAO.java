@@ -16,7 +16,7 @@ public class AutoresDAO {
 
 	// Metodo pra salvar
 	public void save(Autores autor) {
-		String sql = "INSERT INTO autores (nome_autor) values(?);";
+		String sql = "INSERT INTO autores (nome_autor) values(?)";
 
 		try {
 			// Cria uma conexão com o banco

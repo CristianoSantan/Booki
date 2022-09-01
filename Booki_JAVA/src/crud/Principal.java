@@ -2,6 +2,7 @@ package crud;
 
 import java.util.Arrays;
 
+import dao.AutoresDAO;
 import modelo.Autores;
 import modelo.Compras;
 import modelo.Editoras;
@@ -14,6 +15,19 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
+		AutoresDAO autorDAO = new AutoresDAO();
+		
+		Autores a1 = new Autores(2, "Marcos");
+		
+		//autorDAO.save(a1);
+		
+		//autorDAO.deleteById(2);
+		
+		for (Autores a : autorDAO.getAutores()) {
+			System.out.println(a.getNome());
+		}
+		
+		/*
 		Permissoes p1 = new Permissoes(1, "comum");
 		Permissoes p2 = new Permissoes(2, "administrador");
 		
@@ -25,8 +39,6 @@ public class Principal {
 		System.out.println(u2.mostrar());
 		System.out.println(u3.mostrar());
 		
-		Autores a1 = new Autores(1, "Joana");
-		Autores a2 = new Autores(2, "Marcos");
 		
 		Editoras e1 = new Editoras(1, "Atlas");
 		Editoras e2 = new Editoras(2, "alfa");
@@ -52,6 +64,7 @@ public class Principal {
 		}
 		
 		System.out.println(" \nValor compra: " + c1.getValor());
+		*/
 	}
 
 }
