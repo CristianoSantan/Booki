@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AutoresDAO;
 import model.Autores;
 
-@WebServlet(urlPatterns = {"/autores", "/create-autor", "/edit", "/update"})
+@WebServlet(urlPatterns = {"/autores", "/create-autor", "/edit", "/update", "/delet"})
 public class AutoresServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -40,8 +40,12 @@ public class AutoresServlet extends HttpServlet {
 		case "/update":
 			update(request, response);
 			break;
+		case "/delet":
+			delet(request, response);
+			break;
 			
 		default:
+			response.sendRedirect("index.html");
 			break;
 		}
 	}
@@ -84,5 +88,9 @@ public class AutoresServlet extends HttpServlet {
 		response.sendRedirect("autores");
 	}
 	// DELET
-
+	protected void delet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		autoresDAO.deleteById(id);
+		response.sendRedirect("autores");
+	}
 }

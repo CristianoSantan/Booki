@@ -67,7 +67,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 	                           <a href="edit?id=<%=a.getId() %>" class="btn btn-info">
 	                               Editar
 	                           </a>
-	                           <a href="delet?id=" class="btn btn-danger mx-1">
+	                           <a href="delet?id=<%=a.getId() %>" class="btn btn-danger mx-1">
 	                               Deletar
 	                           </a>
 	                       </td>
