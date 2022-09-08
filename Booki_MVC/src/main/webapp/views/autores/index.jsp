@@ -1,10 +1,10 @@
-<%@ page language="java" 
-	contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"
+<%@ page 
+	language="java" 
+	contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
     import="model.Autores"
     import="java.util.List"
 %>
-
 
 <%
 @SuppressWarnings("unchecked")
@@ -12,10 +12,11 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="./assets/img/book-2-fill.svg" type="image/svg" />
 <link rel="stylesheet" href="./assets/css/style.css" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />

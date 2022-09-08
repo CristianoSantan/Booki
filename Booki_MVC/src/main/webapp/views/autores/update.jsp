@@ -1,13 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+<%@ page 
+	language="java" 
+	contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="./assets/img/book-2-fill.svg" type="image/svg" />
 <link rel="stylesheet" href="./assets/css/style.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 <title>Booki | Atualizar Autor</title>
 </head>
 <body>
@@ -32,15 +35,15 @@
 		</ul>
 		
 		<div class="container py-3">
-            <form action="">
+            <form action="./update">
 	            <h2 class="text-center">Atualizar</h2>
 	            
 	            <div class="form-group mb-3">
 	                <label for="id" class="form-label">
 	                    Id
 	                </label>
-	                <input type="text" id="id" name="id" disabled  class="form-control"
-	                value="<%=request.getAttribute("id") %>" />
+	                <input type="text" id="id" name="id" class="form-control"
+	                value="<%=request.getAttribute("id") %>" readonly/>
 	            </div>
 	            
 	            <div class="form-group mb-3">
@@ -54,7 +57,7 @@
 	            <button type="submit" class="btn btn-primary">
 	                Enviar
 	            </button>
-	            <a href="" class="btn btn-danger" style="margin-left: 10px">
+	            <a href="./autores" class="btn btn-danger" style="margin-left: 10px">
 	                Cancelar
 	            </a>
             </form>

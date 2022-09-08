@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AutoresDAO;
 import model.Autores;
 
-@WebServlet(urlPatterns = {"/autores", "/create-autor", "/edit"})
+@WebServlet(urlPatterns = {"/autores", "/create-autor", "/edit", "/update"})
 public class AutoresServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,6 +37,9 @@ public class AutoresServlet extends HttpServlet {
 		case "/edit":
 			edit(request, response);
 			break;
+		case "/update":
+			update(request, response);
+			break;
 			
 		default:
 			break;
@@ -51,7 +54,6 @@ public class AutoresServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("./views/autores/index.jsp");
 		rd.forward(request, response);
 	}
-	
 	// CREATE
 	protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -72,10 +74,15 @@ public class AutoresServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("./views/autores/update.jsp");
 		rd.forward(request, response);
 		
-		
 	}
 	// UPDATE
-	
+	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+		autor.setId(Integer.parseInt(request.getParameter("id")));
+		autor.setNome(request.getParameter("nome"));
+		
+		autoresDAO.update(autor);
+		response.sendRedirect("autores");
+	}
 	// DELET
 
 }
