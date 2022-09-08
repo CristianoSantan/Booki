@@ -53,6 +53,14 @@
 	                <input type="text" id="nome" name="nome"  class="form-control" 
 	                value="<%=request.getAttribute("nome") %>" />
 	            </div>
+	            
+	            <div class="form-group mb-3">
+	                <label for="imagem" class="form-label">
+	                    imagem
+	                </label>
+	                <input type="text" id="imagem" name="imagem" class="form-control" 
+	                value="<%=request.getAttribute("imagem") %>" />
+	            </div>
 	
 	            <button type="submit" class="btn btn-primary">
 	                Enviar

@@ -1,5 +1,14 @@
 @charset "utf-8";
 
+
+a {
+	text-decoration: none !important;
+}
+
+.botao1 {
+	border-radius: 23px 6px !important;
+}
+
 main {
   min-height: calc(100vh - 70px);
   position: relative;
@@ -17,6 +26,24 @@ main section {
   display: flex;
   align-items: flex-end;
   color: white;
+}
+
+.header h1 span {
+	transform: translate(10px, 30px) !important;
+}
+
+.ri-book-2-line {
+	font-size: 50px;
+}
+
+.ri-file-edit-line {
+	font-size: 20px;
+	color: blue;
+}
+
+.ri-delete-bin-2-line {
+	font-size: 20px;
+	color: red;
 }
 
 .resposta {

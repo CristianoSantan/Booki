@@ -20,6 +20,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 <link rel="stylesheet" href="./assets/css/style.css" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <title>Booki | Autores</title>
 </head>
 <body>
@@ -46,14 +47,15 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 		 <section class="container">
 		 
 	     	<div class="p-4">
-			 	<a href="./views/autores/create.html" class="btn btn-primary mb-2">
-		            Criar autor
+			 	<a href="./views/autores/create.html" class="btn btn-primary mb-2 botao1">
+		            Novo Autor
 		        </a>
-				<table class="table table-responsive">
+				<table class="table table-responsive table-hover">
 				  <thead class="thead-dark">
 				    <tr>
 				      <th scope="col">#</th>
 				      <th scope="col">Nome</th>
+				      <th scope="col">foto</th>
 				      <th scope="col">Ações</th>
 				    </tr>
 				  </thead>
@@ -63,12 +65,19 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 					  	<tr>
 					      <td><%=a.getId() %></td>
 					      <td><%=a.getNome() %></td>
+					      <td>
+					      <img src="./assets/img/<%=a.getImagem() %>" width="50px" alt=""/>
+					      </td>
+					    
 					      <td class="d-flex">
-	                           <a href="edit?id=<%=a.getId() %>" class="btn btn-info">
-	                               Editar
+	                           <a href="edit?id=<%=a.getId() %>" class="mx-1"
+	                           		title="Editar">
+	                               <i class="ri-file-edit-line"></i>
 	                           </a>
-	                           <a href="delet?id=<%=a.getId() %>" class="btn btn-danger mx-1">
-	                               Deletar
+	                           <a href="delet?id=<%=a.getId() %>" class="mx-1"
+	                           		title="Cancelar"
+	                           		onclick="return confirm('Deseja excluir o autor <%=a.getNome() %>.')">
+	                               <i class="ri-delete-bin-2-line"></i>
 	                           </a>
 	                       </td>
 					    </tr>

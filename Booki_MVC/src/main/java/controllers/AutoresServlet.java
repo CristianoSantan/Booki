@@ -62,6 +62,7 @@ public class AutoresServlet extends HttpServlet {
 	protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		autor.setNome(request.getParameter("nome"));
+		autor.setImagem(request.getParameter("imagem"));
 		autoresDAO.save(autor);
 		response.sendRedirect("autores");
 	
@@ -74,6 +75,7 @@ public class AutoresServlet extends HttpServlet {
 		
 		request.setAttribute("id", autor.getId());
 		request.setAttribute("nome", autor.getNome());
+		request.setAttribute("imagem", autor.getImagem());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("./views/autores/update.jsp");
 		rd.forward(request, response);
@@ -83,6 +85,7 @@ public class AutoresServlet extends HttpServlet {
 	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		autor.setId(Integer.parseInt(request.getParameter("id")));
 		autor.setNome(request.getParameter("nome"));
+		autor.setImagem(request.getParameter("imagem"));
 		
 		autoresDAO.update(autor);
 		response.sendRedirect("autores");

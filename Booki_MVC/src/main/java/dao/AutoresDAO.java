@@ -16,7 +16,7 @@ public class AutoresDAO {
 
 	// Metodo pra salvar
 	public void save(Autores autor) {
-		String sql = "INSERT INTO autores (nome_autor) values(?)";
+		String sql = "INSERT INTO autores (nome_autor, imagem) values(?, ?)";
 
 		try {
 			// Cria uma conexão com o banco
@@ -28,6 +28,7 @@ public class AutoresDAO {
 			// Adicionar o valor do primeiro parametro da sql
 			pstm.setString(1, autor.getNome());
 
+			pstm.setString(2, autor.getImagem());
 			// Executar a sql para inserção dos dados
 			pstm.execute();
 
@@ -70,6 +71,8 @@ public class AutoresDAO {
 				autor.setId(rset.getInt("id_autor"));
 
 				autor.setNome(rset.getString("nome_autor"));
+				
+				autor.setImagem(rset.getString("imagem"));
 
 				autores.add(autor);
 
@@ -99,7 +102,7 @@ public class AutoresDAO {
 	// Metodo pra atualizar
 
 	public void update(Autores autor) {
-		String sql = "UPDATE autores set nome_autor = ? where id_autor = ?;";
+		String sql = "UPDATE autores set nome_autor = ?, imagem = ? where id_autor = ?;";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
@@ -108,7 +111,9 @@ public class AutoresDAO {
 
 			pstm.setString(1, autor.getNome());
 
-			pstm.setInt(2, autor.getId());
+			pstm.setString(2, autor.getImagem());
+			
+			pstm.setInt(3, autor.getId());
 
 			pstm.execute();
 
@@ -178,6 +183,8 @@ public class AutoresDAO {
 			autor.setId(rset.getInt("id_autor"));
 
 			autor.setNome(rset.getString("nome_autor"));
+			
+			autor.setImagem(rset.getString("imagem"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
