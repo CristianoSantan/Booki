@@ -18,8 +18,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="./assets/img/book-2-fill.svg" type="image/svg" />
 <link rel="stylesheet" href="./assets/css/style.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 <title>Booki | Autores</title>
 </head>
@@ -51,7 +50,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 		            Novo Autor
 		        </a>
 				<table class="table table-responsive table-hover">
-				  <thead class="thead-dark">
+				  <thead class="table-dark">
 				    <tr>
 				      <th scope="col">#</th>
 				      <th scope="col">Nome</th>
@@ -68,8 +67,8 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 					      <td>
 					      <img src="./assets/img/<%=a.getImagem() %>" width="50px" alt=""/>
 					      </td>
-					    
-					      <td class="d-flex">
+					      <td>
+					      	<div class="d-flex">
 	                           <a href="edit?id=<%=a.getId() %>" class="mx-1"
 	                           		title="Editar">
 	                               <i class="ri-file-edit-line"></i>
@@ -79,6 +78,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 	                           		onclick="return confirm('Deseja excluir o autor <%=a.getNome() %>.')">
 	                               <i class="ri-delete-bin-2-line"></i>
 	                           </a>
+	                       	</div>
 	                       </td>
 					    </tr>
 				  	<% } %>
@@ -96,8 +96,7 @@ List<Autores> lista = (List<Autores>) request.getAttribute("autores");
 			alt="recodePro" />
 	</footer>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 </html>
